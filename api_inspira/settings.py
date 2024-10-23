@@ -38,6 +38,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net',
+]
 
 # Application definition
 
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
+    'rest_framework',
 
     'profiles',
 ]
