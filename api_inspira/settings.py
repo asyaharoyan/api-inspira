@@ -69,8 +69,7 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEV' in os.environ
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net',
     'inspira-api-bc9117602418.herokuapp.com'
