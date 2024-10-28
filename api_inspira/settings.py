@@ -73,7 +73,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net',
-    'https://inspira-api-bc9117602418.herokuapp.com'
+    'inspira-api-bc9117602418.herokuapp.com'
     ]
 
 CSRF_TRUSTED_ORIGINS = [
