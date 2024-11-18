@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    """
+    Post model, related to 'owner'.
+    """
 
     STYLE_CHOICES = [
     ('modern', 'Modern'),
