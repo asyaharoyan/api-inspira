@@ -102,9 +102,108 @@ Relationships:
 
   ## PEP8 Validation
 
+  All the code has gone through PREP8 validation. There were a few errors which has been fixed.
+
+  **api-inspira**
+
+  permissions.py
+
+  ![Permissions](documentation/images/api-permissions.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/api-seializers.png)
+
+  views.py
+
+  ![Views](documentation/images/api-views.png)
+
+  wsgi.py
+
+  ![WSGI](documentation/images/api-wsgi.png)
+
+  
+  **comments**
+
+  models.py
+
+  ![Models](documentation/images/comments-models.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/comments-serializers.png)
+
+  views.py
+
+  ![Views](documentation/images/comments-views.png)
+
+
+  **followers**
+
+  models.py
+
+  ![Models](documentation/images/followers-models.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/followers-serializer.png)
+
+  views.py
+
+  ![Views](documentation/images/follower-view.png)
+
+
+  **likes**
+
+  models.py
+
+  ![Models](documentation/images/likes-models.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/likes-serializers.png)
+
+  views.py
+
+  ![Views](documentation/images/likes-views.png)
+
+
+  **posts**
+
+  models.py
+
+  ![Models](documentation/images/post-models.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/post-serializers.png)
+
+  views.py
+
+  ![Views](documentation/images/post-views.png)
+
+
+  **profiles**
+
+  models.py
+
+  ![Models](documentation/images/profiles-models.png)
+
+  serializers.py
+
+  ![Serializers](documentation/images/profiles-serializers.png)
+
+  views.py
+
+  ![Views](documentation/images/profiles-views.png)
+
+
   ## Bugs Fixed
+  
 
   ## Bugs Unresolved
+
+  There are no unresolved bugs.
 
 # Technologies Used
 

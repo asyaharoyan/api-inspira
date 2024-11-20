@@ -8,35 +8,35 @@ class Post(models.Model):
     """
 
     STYLE_CHOICES = [
-    ('modern', 'Modern'),
-    ('classic', 'Classic'),
-    ('minimalist', 'Minimalist'),
-    ('industrial', 'Industrial'),
-    ('contemporary', 'Contemporary'),
-    ('art_deco', 'Art Deco'),
-    ('mid_century_modern', 'Mid-Century Modern'),
-    ('scandinavian', 'Scandinavian'),
-    ('bohemian', 'Bohemian'),
-    ('farmhouse', 'Farmhouse'),
-    ('eclectic', 'Eclectic'),
-    ('shabby_chic', 'Shabby Chic'),
-    ('coastal', 'Coastal'),
-    ('traditional', 'Traditional'),
-    ('asian_zen', 'Asian Zen'),
-    ('rustic', 'Rustic'),
-    ('gothic', 'Gothic'),
-    ('futuristic', 'Futuristic'),
-    ('neo_classical', 'Neo-Classical'),
-    ('abstract', 'Abstract'),
-    ('figurative', 'Figurative'),
-    ('still_life', 'Still Life'),
-    ('impressionism', 'Impressionism'),
-    ('realism', 'Realism'),
-    ('expressionism', 'Expressionism'),
-    ('surrealism', 'Surrealism'),
-    ('pop_art', 'Pop Art'),
-    ('naive_art', 'Naive Art'),
-    ('cubism', 'Cubism'),
+        ('modern', 'Modern'),
+        ('classic', 'Classic'),
+        ('minimalist', 'Minimalist'),
+        ('industrial', 'Industrial'),
+        ('contemporary', 'Contemporary'),
+        ('art_deco', 'Art Deco'),
+        ('mid_century_modern', 'Mid-Century Modern'),
+        ('scandinavian', 'Scandinavian'),
+        ('bohemian', 'Bohemian'),
+        ('farmhouse', 'Farmhouse'),
+        ('eclectic', 'Eclectic'),
+        ('shabby_chic', 'Shabby Chic'),
+        ('coastal', 'Coastal'),
+        ('traditional', 'Traditional'),
+        ('asian_zen', 'Asian Zen'),
+        ('rustic', 'Rustic'),
+        ('gothic', 'Gothic'),
+        ('futuristic', 'Futuristic'),
+        ('neo_classical', 'Neo-Classical'),
+        ('abstract', 'Abstract'),
+        ('figurative', 'Figurative'),
+        ('still_life', 'Still Life'),
+        ('impressionism', 'Impressionism'),
+        ('realism', 'Realism'),
+        ('expressionism', 'Expressionism'),
+        ('surrealism', 'Surrealism'),
+        ('pop_art', 'Pop Art'),
+        ('naive_art', 'Naive Art'),
+        ('cubism', 'Cubism'),
     ]
 
     AREA_TYPE_CHOICES = [
@@ -45,7 +45,7 @@ class Post(models.Model):
         ('landscape', 'Landscape'),
         ('urban', 'Urban'),
     ]
-    
+
     DEFAULT_STYLE = "Classic"
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -69,7 +69,6 @@ class Post(models.Model):
         )
     location = models.CharField(max_length=255, blank=True, null=True)
     completion_date = models.DateField(blank=True, null=True)
-
 
     class Meta:
         ordering = ['-created_at']

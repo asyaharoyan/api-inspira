@@ -12,6 +12,7 @@ def root_route(request):
         "message": "Welcom to ISNPIRA API!"
     })
 
+
 # dj-rest-auth logout view
 @api_view(['POST'])
 def logout_route(request):

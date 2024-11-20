@@ -5,6 +5,7 @@ from .models import Profile
 from .serializers import ProfileSerializer
 from api_inspira.permissions import IsOwnerOrReadOnly
 
+
 class ProfileList(generics.ListAPIView):
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),

@@ -22,11 +22,12 @@ class Profile(models.Model):
     updated_at = models.DateField(auto_now=True)
     full_name = models.CharField(max_length=100, blank=False)
     about = models.TextField(blank=True)
-    profession = models.CharField(max_length=50,
+    profession = models.CharField(
+        max_length=50,
         choices=PROFESSIN_CHOICES,
         default=DEFAULT_PROFESSION,
         blank=False
-        )
+    )
     years_of_experience = models.PositiveIntegerField(null=True, blank=True)
     website = models.URLField(max_length=200, blank=True)
     location = models.CharField(max_length=100, blank=True)
