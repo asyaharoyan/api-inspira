@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.response import Response
 from .models import Profile
 from .serializers import ProfileSerializer
 from api_inspira.permissions import IsOwnerOrReadOnly
@@ -38,3 +39,12 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
+
+
+class ProfessionChoicesList(generics.GenericAPIView):
+    """
+    A read-only view to list profession choices.
+    """
+    def get(self, request, *args, **kwargs):
+        professions = [choice[0] for choice in Profile.PROFESSIN_CHOICES]
+        return Response(professions)

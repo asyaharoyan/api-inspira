@@ -46,14 +46,14 @@ if 'DEV' not in os.environ:
     ]
 
 if 'DEV' in os.environ:
-     DATABASES = {
+    DATABASES = {
          'default': {
              'ENGINE': 'django.db.backends.sqlite3',
              'NAME': BASE_DIR / 'db.sqlite3',
          }
      }
 else:
-     DATABASES = {
+    DATABASES = {
          'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
      }
 
@@ -75,14 +75,16 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+# DEBUG = 'DEV' in os.environ
+DEBUG = True
 
-ALLOWED_HOSTS = ['8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net',
+ALLOWED_HOSTS = [
+    '8000-asyaharoyan-apiinspira-1it4vsdlfh7.ws.codeinstitute-ide.net',
     os.environ.get('ALLOWED_HOST'),
     ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-asyaharoyan-apiinspira-6vttir25e6z.ws.codeinstitute-ide.net',
+    'https://8000-asyaharoyan-apiinspira-1it4vsdlfh7.ws.codeinstitute-ide.net',
 ]
 
 # Application definition
@@ -137,7 +139,7 @@ if 'CLIENT_ORIGIN' in os.environ:
         os.environ.get('CLIENT_ORIGIN')
     ]
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$",]
+    CORS_ALLOWED_ORIGIN_REGEXES = [r"^https://.*\.codeinstitute-ide\.net$", ]
 
 CORS_ALLOW_CREDENTIALS = True
 

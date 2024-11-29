@@ -46,8 +46,8 @@ class Profile(models.Model):
     def ___str__(self):
         return f"{self.owner}"
 
-    def create_profile(sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(owner=instance)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(owner=instance)
 
-    post_save.connect(create_profile, sender=User)
+post_save.connect(create_profile, sender=User)

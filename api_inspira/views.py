@@ -8,8 +8,12 @@ from .settings import (
 
 @api_view()
 def root_route(request):
+    """
+    Function to return a welcome message
+    upon loading the API
+    """
     return Response({
-        "message": "Welcom to ISNPIRA API!"
+        "message": "Welcome to ISNPIRA API!"
     })
 
 
