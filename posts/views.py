@@ -1,6 +1,7 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.response import Response
 from api_inspira.permissions import IsOwnerOrReadOnly
 from .models import Post
 from .serializers import PostSerializer
@@ -56,3 +57,21 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
+
+
+class PostStyleChoice(generics.GenericAPIView):
+    """
+    A read-only view to list style type choices.
+    """
+    def get(self, request, *args, **kwargs):
+        style_choices = [choice[0] for choice in Post.STYLE_CHOICES]
+        return Response(style_choices)
+
+
+class PostStyleChoice(generics.GenericAPIView):
+    """
+    A read-only view to list area type choices.
+    """
+    def get(self, request, *args, **kwargs):
+        area_type_choices = [choice[0] for choice in Post.AREA_TYPE_CHOICES]
+        return Response(area_type_choices)
