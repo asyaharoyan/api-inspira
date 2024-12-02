@@ -68,7 +68,7 @@ class PostStyleChoice(generics.GenericAPIView):
         return Response(style_choices)
 
 
-class PostStyleChoice(generics.GenericAPIView):
+class PostAreaChoice(generics.GenericAPIView):
     """
     A read-only view to list area type choices.
     """
