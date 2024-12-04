@@ -5,7 +5,7 @@ from profiles.models import Profile
 
 class CurrentUserSerializer(UserDetailsSerializer):
     profile_id = serializers.ReadOnlyField(source='profile.id')
-    profile_image = serializers.ReadOnlyField(source='profile.image.url')
+    profile_image = serializers.ReadOnlyField(source='profile.avatar.url')
     profession = serializers.ChoiceField(
         source='profile.profession',
         choices=Profile.PROFESSIN_CHOICES,
