@@ -46,8 +46,6 @@ class Post(models.Model):
         ('urban', 'Urban'),
     ]
 
-    DEFAULT_STYLE = "Classic"
-
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -59,7 +57,6 @@ class Post(models.Model):
     style = models.CharField(
         max_length=20,
         choices=STYLE_CHOICES,
-        default=DEFAULT_STYLE,
         blank=False
         )
     area_type = models.CharField(
