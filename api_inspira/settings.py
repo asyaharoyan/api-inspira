@@ -30,7 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [(
-        'rest_framework.authentication.SessionAuthentication'
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
         if 'DEV' in os.environ
         else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
     )],
@@ -139,7 +140,7 @@ TEMPLATES = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://3000-asyaharoyan-inspira-fq3mc1yi1y4.ws.codeinstitute-ide.net',
+    'https://3000-asyaharoyan-inspira-ubwf496pqig.ws.codeinstitute-ide.net',
 ]
 
 if 'CLIENT_ORIGIN' in os.environ:
