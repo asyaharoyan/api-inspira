@@ -156,7 +156,7 @@ CORS_ALLOW_CREDENTIALS = True
 WSGI_APPLICATION = 'api_inspira.wsgi.application'
 
 
-
+# Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DEV' in os.environ:
