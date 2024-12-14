@@ -35,6 +35,10 @@ To visualize the connections between the models in the Inspira app, I have creat
 
 # Database
 
+For the production environment, has been used **PostgreSQL**, a powerful and reliable open-source relational database. 
+
+The database is hosted by **ElephantSQL**, which provides a cloud-based PostgreSQL-as-a-Service, ensuring scalability and performance for our application.
+
 # Models
 
 ## Profiles model
@@ -483,5 +487,5 @@ After connecting the project click on **Deploy Branch**
 # Credits
 
 This project was inspired by and developed following the **Code Institute** DRF-API walkthrough. It has been customized and modified to meet the specific requirements of the **Inspira** project.
-All the images featured on the website showcase real-life projects completed by me during my professional career.
+All the images featured on the website showcase real-life projects completed by me during my professional career. Some of the other pictures posted by other users created by me to test the app are downloaded from [Pixabay](https://pixabay.com/).
 
