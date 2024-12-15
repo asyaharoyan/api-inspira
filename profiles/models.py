@@ -15,6 +15,7 @@ class Profile(models.Model):
         (GRAPHIC_DESIGNER, 'Graphic Designer'),
         (PAINTER, "Painter"),
     ]
+    DEFAULT_PROFESSION = "Arcitect"
 
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
@@ -24,7 +25,8 @@ class Profile(models.Model):
     profession = models.CharField(
         max_length=50,
         choices=PROFESSIN_CHOICES,
-        blank=False
+        blank=False,
+        default=DEFAULT_PROFESSION
     )
     years_of_experience = models.PositiveIntegerField(null=True, blank=True)
     website = models.URLField(max_length=200, blank=True)
