@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     """
-    Post model, related to 'owner'.
+    Post model representing user-generated posts with fields
+    for title, content, image, style, area type, location
+    and completion date.
+    Includes relationship to the 'owner' (User) and timestamps,
+    with default ordering by creation date.
     """
-
     STYLE_CHOICES = [
         ('modern', 'Modern'),
         ('classic', 'Classic'),

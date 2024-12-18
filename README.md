@@ -26,7 +26,6 @@ You can rewiew the front-en application here - [Inspira](https://github.com/asya
 - [**Acknowledgments**](#acknowledgements)
 
 
-
 # Entity Relationship Diagram
 
 To visualize the connections between the models in the Inspira app, I have created a relationships diagram. This diagram provides a clear representation of how the models **Profiles, Posts, Comments, Followers, and Likes** interact with each other.
@@ -369,29 +368,23 @@ Add that new route to the urlpatterns list in the main **urls.py** file
     ...
     ]
 
-Create a new production database with **ElephantSQL**
+Create a new production database with **PostgreSQL**
 
+- Navigate to PostgreSQL from Code Institute
+- Enter student email address in the input field provided
+- Click Submit
+- Wait while the database is created
 
-- Log into ElephantSQL
-- Click Create New Instance
-- Give your plan a name
-- Select *Tiny Turtle (Free) plan
-- Click Select Region and pick a data center near you
-- Click Review, double check the information, click **Create Instance**
-
-Return to the dashboard, find the created plan and copy the URL
-
-![ElephantSQL](documentation/images/elephantsql.png)
-
-Back in local project, in **eny.py** add the copied production database URL and store it in a new variable which can be referenced without exposing the value to unwanted eyes
+After creating the database an email has been sent.
+Back in local project, in eny.py add the copied production database URL and store it in a new variable which can be referenced without exposing the value to unwanted eyes.
 
     os.environ.setdefault(
-    "DATABASE_URL", "YOUR DB URL HERE",
-    )
+        "DATABASE_URL", "YOUR DB URL HERE",
+        )
 
 In the terminal, type in pip install dj_database_url
 
-After that has installed, we need to import it into our main **settings.py** file **import dj_database_url**
+After that has installed, we need to import it into our main settings.py file import dj_database_url
 
 Seperate the development and production environment databases with the following code
 

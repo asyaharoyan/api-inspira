@@ -5,7 +5,9 @@ from posts.models import Post
 
 class Comment(models.Model):
     """
-    Comment model, related to User and Post
+    Comment model representing user-generated comments on posts. 
+    Includes fields for the owner, associated post, content, and
+    timestamps, with default ordering by creation date.   
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -9,8 +9,12 @@ from .serializers import PostSerializer
 
 class PostList(generics.ListCreateAPIView):
     """
-    List posts or create a post if logged in
-    The perform_create method associates the post with the logged in user.
+    PostList view for listing posts or creating a post
+    if the user is logged in. 
+    The perform_create method ensures the post is associated
+    with the logged-in user.
+    Filters and search options are available for narrowing
+    down the posts by various criteria.
     """
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -49,7 +53,10 @@ class PostList(generics.ListCreateAPIView):
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve a post and edit or delete it if you own it.
+    PostDetail view for retrieving, updating, or deleting a post.
+    Only the owner can edit or delete the post.
+    The view also includes the total number of likes
+    and comments associated with the post.
     """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
@@ -61,7 +68,8 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class PostStyleChoice(generics.GenericAPIView):
     """
-    A read-only view to list style type choices.
+    PostStyleChoice view for retrieving the available
+    post style choices in a read-only format.
     """
     def get(self, request, *args, **kwargs):
         style_choices = [choice[0] for choice in Post.STYLE_CHOICES]
@@ -70,7 +78,8 @@ class PostStyleChoice(generics.GenericAPIView):
 
 class PostAreaChoice(generics.GenericAPIView):
     """
-    A read-only view to list area type choices.
+    PostAreaChoice view for retrieving the available
+    post area type choices in a read-only format.
     """
     def get(self, request, *args, **kwargs):
         area_type_choices = [choice[0] for choice in Post.AREA_TYPE_CHOICES]

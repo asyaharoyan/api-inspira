@@ -8,6 +8,12 @@ from api_inspira.permissions import IsOwnerOrReadOnly
 
 
 class ProfileList(generics.ListAPIView):
+    """
+    ProfileList view for listing all profiles with annotated counts
+    for posts, followers, and following. 
+    Supports filtering by relationships and ordering by
+    various annotated fields.
+    """
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
@@ -32,6 +38,11 @@ class ProfileList(generics.ListAPIView):
 
 
 class ProfileDetail(generics.RetrieveUpdateAPIView):
+    """
+    ProfileDetail view for retrieving or updating a specific profile. 
+    Includes annotated counts for posts, followers, and following,
+    with ownership-based permissions.
+    """
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
         followers_count=Count('owner__followed', distinct=True),

@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    """
+    Profile model representing user details, including profession,
+    experience, and avatar. 
+    Automatically creates a profile when a new user is registered.
+    """
     INTERIOR_DESIGNER = 'Interior Designer'
     ARCHITECT = "Architect"
     GRAPHIC_DESIGNER = 'Graphic Designer'

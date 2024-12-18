@@ -7,7 +7,9 @@ from .serializers import CommentSerializer, CommentDetailSerializer
 
 class CommentList(generics.ListCreateAPIView):
     """
-    List comments or create a comment if logged in.
+    CommentList view for listing and creating comments. 
+    Supports filtering by post and requires authentication
+    for comment creation.
     """
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

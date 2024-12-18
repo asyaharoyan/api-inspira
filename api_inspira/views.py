@@ -17,9 +17,16 @@ def root_route(request):
     })
 
 
-# dj-rest-auth logout view
+
 @api_view(['POST'])
 def logout_route(request):
+    """
+    Handles user logout by clearing authentication cookies.
+
+    This function removes the JWT authentication cookie and the JWT refresh cookie
+    by setting their values to an empty string and their expiration date to a past date.
+    It ensures that the user's session is securely invalidated.
+    """
     response = Response()
     response.set_cookie(
         key=JWT_AUTH_COOKIE,

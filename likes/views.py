@@ -6,7 +6,9 @@ from likes.serializers import LikeSerializer
 
 class LikeList(generics.ListCreateAPIView):
     """
-    List likes or create a like if logged in.
+    LikeList view for listing and creating likes. 
+    Requires authentication for liking and allows
+    users to like posts.
     """
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = LikeSerializer

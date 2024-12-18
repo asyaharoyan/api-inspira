@@ -4,6 +4,12 @@ from likes.models import Like
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Post model, including fields for owner details,
+    like and comment counts, and profile information. 
+    Provides custom validation for images and methods to determine
+    ownership and retrieve the user's like ID.
+"""
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')

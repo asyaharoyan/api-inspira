@@ -4,6 +4,11 @@ from followers.models import Follower
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Profile model, providing user details,
+    ownership status, and follow-related information. 
+    Includes counts for posts, followers, and following relationships.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
