@@ -163,13 +163,12 @@ All links for profile pictures and post images are functional.
 
 ### Sign Up
 
-- Logged-in users cannot see the **Sign Up** button and cannot access `/dj-rest-auth/registration`.
+- Logged-in users cannot see the **Sign Up** button.
 - `/dj-rest-auth/registration` - Users can create a profile. The form ensures that passwords match and checks if the user already exists.
 
 ### Sign Out
 
 - If the user is logged in, the **Sign Out** button appears next to the username. Clicking the button signs the user out.
-- Logged-out users cannot access `/dj-rest-auth/logout/`.
 
 
   ## PEP8 Validation
