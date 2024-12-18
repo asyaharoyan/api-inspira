@@ -7,25 +7,6 @@ Logged in users can create/edit/delete posts and comments.
 
 You can rewiew the front-en application here - [Inspira](https://github.com/asyaharoyan/inspira)
 
-## Contents
-
-- [**Entity Relationship Diagram**](#entity-relationship-diagram)
-- [**Database**](#database)
-- [**Models**](#models)
-- [**Testing**](#testing)
-  - [**Manual Testing**](#manual-testing)
-  - [**PEP8 Validation**](#pep8-validation)
-  - [**Bugs Fixed**](#bugs-fixed)
-  - [**Bugs Unresolved**](#bugs-unresolved)
-- [**Technologies Used**](#technologies-used)
-- [**Deployment To Heroku**](#deployment-to-heroku)
-- [**Cloning This Project**](#cloning-and-setting-up-this-project)
-- [**Credits**](#credits)
-  - [**Content**](#content)
-  - [**Media**](#media)
-- [**Acknowledgments**](#acknowledgements)
-
-
 # Entity Relationship Diagram
 
 To visualize the connections between the models in the Inspira app, I have created a relationships diagram. This diagram provides a clear representation of how the models **Profiles, Posts, Comments, Followers, and Likes** interact with each other.
@@ -98,10 +79,70 @@ Relationships:
 
 ![Follower](documentation/images/follower.png)
 
+# Technologies Used
+
+### Languages
+
+- **Python** - A programming language that lets you work quickly and integrate systems more effectively
+
+### Libraries and Frameworks
+
+- **Django** - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- **Django REST Framework** - A powerful and flexible toolkit for building Web APIs
+
+### Packages
+
+- **asgiref** - Provides asynchronous support for Django, enabling asynchronous views and other async-based functionality.
+- **cloudinary** - A cloud-based service for image and video management, providing easy upload, storage, and delivery integration.
+- **dj-database-url** - Simplifies database configuration in Django by parsing database URLs.
+- **dj-rest-auth** - A Django package for managing authentication endpoints, including login, registration, and password reset functionalities.
+- **Django** - A high-level Python web framework for building robust web applications quickly and efficiently.
+- **django-allauth** - A Django package that handles authentication, registration, and social authentication with various providers.
+- **django-cloudinary-storage** - Integrates Cloudinary with Django for seamless media storage and management.
+- **django-cors-headers** - A Django app that allows handling Cross-Origin Resource Sharing (CORS) headers, enabling cross-origin requests.
+- **django-filter** - A Django package for filtering querysets dynamically, making it easy to add filtering capabilities to APIs.
+- **djangorestframework** - A powerful toolkit for building Web APIs in Django, providing features like serializers, views, and authentication.
+- **djangorestframework-simplejwt** - A package for JSON Web Token (JWT) authentication, providing a simple implementation for DRF.
+- **gunicorn** - A WSGI HTTP server for Python web applications, commonly used to serve Django applications in production.
+- **oauthlib** - A library for implementing OAuth 1 and OAuth 2 protocols, commonly used for third-party authentication.
+- **Pillow** - A Python Imaging Library (PIL) fork, providing easy image processing capabilities for web applications.
+- **psycopg2** - A PostgreSQL database adapter for Python, enabling interaction with PostgreSQL from Django.
+- **PyJWT** - A library for encoding and decoding JSON Web Tokens (JWT), widely used for handling authentication tokens.
+- **python3-openid** - A Python library for integrating OpenID authentication into web applications.
+- **pytz** - A library for accurate and timezone-aware datetime handling in Python.
+- **sqlparse** - A non-validating SQL parser for Python, useful for parsing and formatting SQL statements.
+- **urllib3** - A powerful HTTP client for Python, handling HTTP connections and requests with many advanced features.
+
+### Other Tools
+
+- **Gitpod** - Used to create and edit the website
+- **GitHub** - Used to host and deploy the website as well as manage the project.
+- **Heroku** - Used to deploy the website
+- **SQLite** - An open-source, zero-configuration, self-contained, stand-alone, transaction relational database engine designed to be embedded into an application.
+- **PostgreSQL** - Provides a browser tool for SQL queries where you can create, read, update and delete data directly from your web browser.
+- **Cloudinary** - Used to host all static files .
+- **CI PEP8 Linter** - Used to check the Python code for any linting issues
 
 # Testing
 
   ## Manual Testing
+
+  **Profiles**
+
+  `/profiles` - Returns a list of all the profiles in the database ordered by creation date - Pass
+  `/profiles/<int:pk>` - Returns a single profile with a correct ID and a list of all it's values and if the user isn't the owner of the profile, they can't edit it, if the user owns the profile they can edit it
+
+  **Posts**
+
+  `/posts` - Returns a list of posts and if the user is logged in can create a post
+  `/posts/<int:pk>` - Returns a single post with a correct ID and a list of all it's values and if the user isn't the owner of the post, they can't edit it, if the user owns the post they can edit it
+
+  All the links for profile picture and post picture are working
+
+  **Followers**
+  **Likes**
+  **Comments**
+
 
   ## PEP8 Validation
 
@@ -202,15 +243,44 @@ Relationships:
 
 
   ## Bugs Fixed
+    
+During development, I encountered a major issue with the database that led to data loss.
+The system failed to recognize the models as migrated, and reapplying migrations was not possible.
 
+- **500 Internal Server Error**: The front-end failed to load the data, and the console displayed multiple error messages.
+  
+  ![Error](documentation/images/database-error.png)
+
+- **Database Not Found**: The app couldn't locate the database, resulting in broken functionality.
+  
+  ![Error](documentation/images/posts-error.png)
+  
+  ![Error](documentation/images/posts-error1.png)
+
+- **Admin Profile Creation Failure**: While attempting to create a user profile via the admin interface, an error occurred.
+  
+  ![Error](documentation/images/profile-admin-error.png)
+
+- **Profile Page Error**: Accessing the `/profiles` page led to another error.
+  
+  ![Error](documentation/images/profiles-error.png)
+
+- **Front-End Unresponsiveness**: The front-end failed to respond and threw additional errors.
+  
+  ![Error](documentation/images/server-error.png)
+
+### Resolution:
+After updating the packages and troubleshooting, no immediate fix was found.
+Ultimately, I was forced to create a new database and reapply the migrations.
+After this, the issues were resolved, and the app returned to normal functionality.
 
   ## Bugs Unresolved
 
-  There are no unresolved bugs.
+  When the user is editing the post, they are forced to choose a picture as the old on is lost.
 
-# Technologies Used
-
-In this project has been used **Python** programming language, **Django** framework and **Django REST** framework. 
+  The newly created profile defaults to the profession "Architect" because the field is required and has 
+  a default value. This issue has not been addressed yet, as the profile model will be updated in the future to 
+  include additional mandatory fields in the sign-up form, with the profession also being a required field.
 
 # Deployment To Heroku
 
