@@ -127,21 +127,49 @@ Relationships:
 
   ## Manual Testing
 
-  **Profiles**
+All tests were passed during manual testing.
 
-  `/profiles` - Returns a list of all the profiles in the database ordered by creation date - Pass
-  `/profiles/<int:pk>` - Returns a single profile with a correct ID and a list of all it's values and if the user isn't the owner of the profile, they can't edit it, if the user owns the profile they can edit it
+### Profiles
 
-  **Posts**
+- `/profiles` - Returns a list of all profiles in the database, ordered by creation date.
+- `/profiles/<int:pk>` - Returns a single profile with the correct ID and its details. If the user is not the profile owner, they cannot edit it. If the user owns the profile, they can edit it.
 
-  `/posts` - Returns a list of posts and if the user is logged in can create a post
-  `/posts/<int:pk>` - Returns a single post with a correct ID and a list of all it's values and if the user isn't the owner of the post, they can't edit it, if the user owns the post they can edit it
+### Posts
 
-  All the links for profile picture and post picture are working
+- `/posts` - Returns a list of posts. Logged-in users can create a post.
+- `/posts/<int:pk>` - Returns a single post with the correct ID and its details. If the user is not the post owner, they cannot edit or delete it. If the user owns the post, they can edit or delete it. When clicking the delete button, a confirmation form pops up.
 
-  **Followers**
-  **Likes**
-  **Comments**
+All links for profile pictures and post images are functional.
+
+### Followers
+
+- `/followers` - Lists followers. A dropdown menu allows selecting a user to view their followers.
+- `/followers/<int:pk>` - Displays a single profile's ID. Users can follow a profile if it is not their own. They can also unfollow if they already follow the profile.
+
+### Likes
+
+- `/likes` - Allows liking a post. Trying to like the same post multiple times is not permitted.
+- `/likes/<int:pk>` - Allows unliking a post if the user is the owner of the like.
+
+### Comments
+
+- `/comments` - Logged-in users can leave a comment.
+- `/comments/<int:pk>` - Returns a single comment with the correct ID and its details. The comment owner can edit or delete it. Non-owners cannot edit the comment. When clicking the delete button, a confirmation popup appears.
+
+### Sign In
+
+- Logged-in users cannot see the **Sign In** button.
+- `/dj-rest-auth/login` - Logged-out users can log in using valid credentials.
+
+### Sign Up
+
+- Logged-in users cannot see the **Sign Up** button and cannot access `/dj-rest-auth/registration`.
+- `/dj-rest-auth/registration` - Users can create a profile. The form ensures that passwords match and checks if the user already exists.
+
+### Sign Out
+
+- If the user is logged in, the **Sign Out** button appears next to the username. Clicking the button signs the user out.
+- Logged-out users cannot access `/dj-rest-auth/logout/`.
 
 
   ## PEP8 Validation
