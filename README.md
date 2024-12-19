@@ -15,9 +15,7 @@ To visualize the connections between the models in the Inspira app, I have creat
 
 # Database
 
-For the production environment, has been used **PostgreSQL**, a powerful and reliable open-source relational database. 
-
-The database is hosted by **ElephantSQL**, which provides a cloud-based PostgreSQL-as-a-Service, ensuring scalability and performance for our application.
+For the production environment, has been used **PostgreSQL**, a powerful and reliable open-source relational database.
 
 # Models
 
